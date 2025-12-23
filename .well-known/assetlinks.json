@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.chesssmass",
+      "sha256_cert_fingerprints": [
+        "C2:06:7F:9C:26:FC:EC:75:1C:5E:A5:A0:7E:A2:EE:35:0B:74:D5:26:5F:2A:3B:54:AE:ED:EC:27:0C:19:6A:DA"
+      ]
+    }
+  }
+]
