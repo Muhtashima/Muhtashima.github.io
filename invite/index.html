@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Opening app…</title>
-    <script>
-      const playStore =
-        "https://play.google.com/store/apps/details?id=com.example.chesssmass";
+<head>
+  <meta charset="utf-8">
+  <title>Join Game</title>
 
-      // Redirect to Play Store after 500ms
-      setTimeout(() => {
-        window.location.href = playStore;
-      }, 500);
-    </script>
-  </head>
-  <body>
-    Redirecting to app…
-  </body>
+  <script>
+    const roomId = new URLSearchParams(window.location.search).get("room");
+
+    const deepLink = `myapp://invite/${roomId}`;
+    const apkUrl = "https://muhtashima.github.io/app/app-release.apk";
+
+    // Try to open app
+    window.location.href = deepLink;
+
+    // Fallback: download APK
+    setTimeout(() => {
+      window.location.href = apkUrl;
+    }, 800);
+  </script>
+</head>
+
+<body>
+  <p>Opening app…</p>
+  <p>If the app is not installed, download will start.</p>
+</body>
 </html>
+
