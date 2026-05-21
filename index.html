@@ -18,6 +18,20 @@
       cursor: pointer;
     }
   </style>
+  <script>
+    const roomId = new URLSearchParams(window.location.search).get("room");
+
+    const deepLink = `myapp://invite/${roomId}`;
+    const apkUrl = "https://github.com/Muhtashima/Muhtashima.github.io/releases/download/v0.3-test/app-arm64-v8a-release.apk";
+
+    // Try to open app
+    window.location.href = deepLink;
+
+    // Fallback: download APK
+    setTimeout(() => {
+      window.location.href = apkUrl;
+    }, 800);
+  </script>
 </head>
 <body>
 
