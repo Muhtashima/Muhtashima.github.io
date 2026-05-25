@@ -19,9 +19,9 @@
     }
   </style>
   <script>
-    const roomId = new URLSearchParams(window.location.search).get("room");
+    const roomId = new URLSearchParams(window.location.search).get("game");
 
-    const deepLink = `myapp://invite/${roomId}`;
+    const deepLink = `myapp://game/${gameID}`;
     const apkUrl = "https://github.com/Muhtashima/Muhtashima.github.io/releases/download/v0.3/app-arm64-v8a-release.apk";
 
     // Try to open app
