@@ -2,12 +2,14 @@
 <html>
 <head>
   <title>My App</title>
+
   <style>
     body {
       font-family: Arial;
       text-align: center;
       padding: 50px;
     }
+
     .btn {
       background: #4CAF50;
       color: white;
@@ -18,56 +20,44 @@
       cursor: pointer;
     }
   </style>
+
   <script>
-    const gameID = window.location.pathname.split("/").pop();
+    window.onload = function () {
 
-    const deepLink = `https://muhtashima.github.io/game/${gameID}`;
-    const apkUrl = "https://github.com/Muhtashima/Muhtashima.github.io/releases/download/v0.6/app-arm64-v8a-release.apk";
+      const pathParts = window.location.pathname.split("/");
+      const gameID = pathParts[pathParts.length - 1];
 
-    // Try to open app
-    window.location.href = deepLink;
+      // Only redirect if valid gameID exists
+      if (gameID && gameID !== "" && gameID !== "index.html") {
 
-    // Fallback: download APK
-    setTimeout(() => {
-      window.location.href = apkUrl;
-    }, 800);
+        const deepLink = `https://muhtashima.github.io/game/${gameID}`;
+
+        // Try opening app via Android App Links
+        window.location.href = deepLink;
+
+      }
+    };
   </script>
 </head>
+
 <body>
 
   <h1>Download My App 📱</h1>
-  
-  <p>Click below to download the APK</p>
+
+  <p>If app doesn't open, download APK below:</p>
+
+  <button class="btn"
+    onclick="window.location.href='https://github.com/Muhtashima/Muhtashima.github.io/releases/download/v0.6/app-arm64-v8a-release.apk'">
+    Download APK
+  </button>
+
+  <hr>
+
   <ul>
-  <li>
-    v0.6 
-    <a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.6">Download</a>
-  </li>
-  <li>
-    v0.5
-    <a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.5">Download</a>
-  </li>
-  <li>
-    v0.4 
-    <a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.4">Download</a>
-  </li>
-    <li>
-    v0.3 
-    <a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.3">Download</a>
-  </li>
-  <li>
-    v0.2 
-    <a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.2-test">Download</a>
-  </li>
-
-  <li>
-    v0.1  
-    <a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.1-test">Download</a>
-  </li>
-
-</ul>
-
+    <li><a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.6">v0.6</a></li>
+    <li><a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.5">v0.5</a></li>
+    <li><a href="https://github.com/Muhtashima/Muhtashima.github.io/releases/tag/v0.4">v0.4</a></li>
+  </ul>
 
 </body>
 </html>
-
